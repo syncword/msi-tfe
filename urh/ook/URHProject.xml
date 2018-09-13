@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<UniversalRadioHackerProject broadcast_address_hex="ffff" collapse_project_tabs="1" description="" modulation_was_edited="0">
+<UniversalRadioHackerProject broadcast_address_hex="ffff" collapse_project_tabs="0" description="" modulation_was_edited="0">
   <modulators>
     <modulator carrier_amplitude="1.0" carrier_freq_hz="40000.0" carrier_phase_deg="0.0" gauss_bt="0.5" gauss_filter_width="1.0" index="0" modulation_type="0" name="Modulator" param_for_one="100.0" param_for_zero="0.0" sample_rate="None" samples_per_bit="100"/>
   </modulators>
@@ -18,12 +18,12 @@
   </device_conf>
   <simulator_rx_conf/>
   <simulator_tx_conf/>
-  <signal auto_detect_on_modulation_changed="False" bit_length="467" filename="Pablo_Keyfob_HackRF-433_920MHz-2MSps-2MHz.complex" message_length_divisor="1" modulation_type="1" name="Picasso_Keyfob_HackRF-433_920MHz-2MSps-2MHz" noise_maximum="0.0299" noise_minimum="-0.0299" noise_threshold="0.0299" pause_threshold="8" qad_center="0.027759050950407982" sample_rate="2000000.0" tolerance="5">
+  <signal auto_detect_on_modulation_changed="False" bit_length="460" filename="Picasso_Keyfob_HackRF-433_920MHz-2MSps-2MHz.complex" message_length_divisor="1" modulation_type="0" name="Picasso_Keyfob_HackRF-433_920MHz-2MSps-2MHz" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0.027776196599006653" sample_rate="2000000.0" tolerance="5">
     <messages/>
   </signal>
-  <open_file name="Pablo_Keyfob_HackRF-433_920MHz-2MSps-2MHz.complex" position="0"/>
+  <open_file name="Picasso_Keyfob_HackRF-433_920MHz-2MSps-2MHz.complex" position="0"/>
   <group id="0" name="New Group">
-    <cf_protocol filename="Pablo_Keyfob_HackRF-433_920MHz-2MSps-2MHz.complex"/>
+    <cf_protocol filename="Picasso_Keyfob_HackRF-433_920MHz-2MSps-2MHz.complex"/>
   </group>
   <protocol>
     <decodings>
@@ -37,7 +37,9 @@
       <participant address_hex="" color_index="0" id="eb540437-88ba-49dd-bb8f-a7458d3b11fa" name="Alice" relative_rssi="0" shortname="A" simulate="0"/>
       <participant address_hex="" color_index="1" id="170c54ee-1ed9-4013-82fb-604ad48efe04" name="Bob" relative_rssi="1" shortname="B" simulate="0"/>
     </participants>
-    <messages/>
+    <messages>
+      <message decoding_index="2" message_type_id="f6299e85-7e53-4858-8b64-91b6862ea50e" modulator_index="0" pause="8409" timestamp="1535123144.3489466"/>
+    </messages>
     <message_types>
       <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="f6299e85-7e53-4858-8b64-91b6862ea50e" name="default">
         <ruleset mode="0"/>

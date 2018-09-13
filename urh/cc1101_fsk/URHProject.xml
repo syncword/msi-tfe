@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<UniversalRadioHackerProject broadcast_address_hex="ffff" collapse_project_tabs="0" description="" modulation_was_edited="0">
+  <modulators>
+    <modulator carrier_amplitude="1.0" carrier_freq_hz="40000.0" carrier_phase_deg="0.0" gauss_bt="0.5" gauss_filter_width="1.0" index="0" modulation_type="0" name="Modulator" param_for_one="100.0" param_for_zero="0.0" sample_rate="None" samples_per_bit="100"/>
+  </modulators>
+  <device_conf>
+    <adaptive_noise>False</adaptive_noise>
+    <bandwidth>2000000.0</bandwidth>
+    <bit_len>1400.0</bit_len>
+    <center>0.0454</center>
+    <decoding_name>Non Return To Zero (NRZ)</decoding_name>
+    <freq_correction>1.0</freq_correction>
+    <frequency>433920000.0</frequency>
+    <gain>20.0</gain>
+    <modulation_index>1.0</modulation_index>
+    <name>HackRF</name>
+    <noise>0.0229</noise>
+    <num_sending_repeats>0.0</num_sending_repeats>
+    <rx_antenna_index>-1.0</rx_antenna_index>
+    <rx_baseband_gain>30.0</rx_baseband_gain>
+    <rx_gain>0.0</rx_gain>
+    <rx_if_gain>16.0</rx_if_gain>
+    <sample_rate>2000000.0</sample_rate>
+    <tolerance>5.0</tolerance>
+  </device_conf>
+  <simulator_rx_conf/>
+  <simulator_tx_conf/>
+  <signal auto_detect_on_modulation_changed="True" bit_length="72" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0.043537210673093796" sample_rate="2000000.0" tolerance="5">
+    <messages/>
+  </signal>
+  <open_file name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae.complex" position="0"/>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae-filtered-with-f_low=0_01179-f_high=0_003476-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae-filtered-with-f_low=0_01179-f_high=0_003476-bw=0_08" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0.043537210673093796" sample_rate="1000000.0" tolerance="5">
+    <messages/>
+  </signal>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0" sample_rate="2000000.0" tolerance="5">
+    <messages/>
+  </signal>
+  <open_file name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2.complex" position="2"/>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2-filtered-with-f_low=0_01202-f_high=0_003972-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2-filtered-with-f_low=0_01202-f_high=0_003972-bw=0_08" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0.046" sample_rate="1000000.0" tolerance="5">
+    <messages/>
+  </signal>
+  <group id="0" name="New Group">
+    <cf_protocol filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae.complex"/>
+    <cf_protocol filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2.complex"/>
+  </group>
+  <protocol>
+    <decodings>
+      <decoding>'Non Return To Zero (NRZ)', </decoding>
+      <decoding>'Non Return To Zero Inverted (NRZ-I)', 'Invert', </decoding>
+      <decoding>'Manchester I', 'Edge Trigger', </decoding>
+      <decoding>'Manchester II', 'Edge Trigger', 'Invert', </decoding>
+      <decoding>'Differential Manchester', 'Edge Trigger', 'Differential Encoding', </decoding>
+    </decodings>
+    <participants/>
+    <messages>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="4049" timestamp="1536852891.1931267"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3888" timestamp="1536852908.463816"/>
+      <message decoding_index="4" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3927" timestamp="1536852976.49972"/>
+      <message decoding_index="4" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="4086" timestamp="1536853055.2410748"/>
+    </messages>
+    <message_types>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="d6defec5-e886-46b9-b406-8b472908a94f" name="default">
+        <label apply_decoding="True" auto_created="True" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="37" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="1"/>
+        <label apply_decoding="True" auto_created="True" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="41" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="37"/>
+        <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="45" fuzz_me="2" fuzz_values="" name="length" show="2" start="41"/>
+        <ruleset mode="0"/>
+      </message_type>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="cee568ba-74b9-45e4-b974-d4c00cd8c8b8" name="Message type #1">
+        <label apply_decoding="True" auto_created="True" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="37" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="1"/>
+        <label apply_decoding="True" auto_created="True" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="41" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="37"/>
+        <ruleset mode="0"/>
+      </message_type>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="03eea9ab-598a-4394-a81a-f4ba4afd60b7" name="Message type #2">
+        <label apply_decoding="True" auto_created="True" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="37" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="1"/>
+        <label apply_decoding="True" auto_created="True" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="41" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="37"/>
+        <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="45" fuzz_me="2" fuzz_values="" name="length" show="2" start="41"/>
+        <ruleset mode="0"/>
+      </message_type>
+    </message_types>
+  </protocol>
+  <simulator_config>
+    <items/>
+  </simulator_config>
+</UniversalRadioHackerProject>
