@@ -9,38 +9,46 @@
     <bit_len>1400.0</bit_len>
     <center>0.0454</center>
     <decoding_name>Non Return To Zero (NRZ)</decoding_name>
-    <freq_correction>1.0</freq_correction>
+    <freq_correction>1</freq_correction>
     <frequency>433920000.0</frequency>
     <gain>20.0</gain>
     <modulation_index>1.0</modulation_index>
-    <name>HackRF</name>
+    <name>RTL-SDR</name>
     <noise>0.0229</noise>
-    <num_sending_repeats>0.0</num_sending_repeats>
-    <rx_antenna_index>-1.0</rx_antenna_index>
-    <rx_baseband_gain>30.0</rx_baseband_gain>
-    <rx_gain>0.0</rx_gain>
-    <rx_if_gain>16.0</rx_if_gain>
+    <num_sending_repeats>0</num_sending_repeats>
+    <rx_antenna_index>-1</rx_antenna_index>
+    <rx_baseband_gain>30</rx_baseband_gain>
+    <rx_gain>25</rx_gain>
+    <rx_if_gain>16</rx_if_gain>
     <sample_rate>2000000.0</sample_rate>
     <tolerance>5.0</tolerance>
   </device_conf>
   <simulator_rx_conf/>
   <simulator_tx_conf/>
-  <signal auto_detect_on_modulation_changed="True" bit_length="72" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0.043537210673093796" sample_rate="2000000.0" tolerance="5">
+  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0" sample_rate="2000000.0" tolerance="5">
     <messages/>
   </signal>
-  <open_file name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae.complex" position="0"/>
-  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae-filtered-with-f_low=0_01179-f_high=0_003476-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae-filtered-with-f_low=0_01179-f_high=0_003476-bw=0_08" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0.043537210673093796" sample_rate="1000000.0" tolerance="5">
-    <messages/>
-  </signal>
-  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0" sample_rate="2000000.0" tolerance="5">
-    <messages/>
-  </signal>
-  <open_file name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2.complex" position="2"/>
+  <open_file name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2.complex" position="0"/>
   <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2-filtered-with-f_low=0_01202-f_high=0_003972-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2-filtered-with-f_low=0_01202-f_high=0_003972-bw=0_08" noise_maximum="0.0229" noise_minimum="-0.0229" noise_threshold="0.0229" pause_threshold="8" qad_center="0.046" sample_rate="1000000.0" tolerance="5">
     <messages/>
   </signal>
+  <signal auto_detect_on_modulation_changed="True" bit_length="100" filename="RTL-SDR-433_920MHz-2MSps-2MHz.complex" message_length_divisor="1" modulation_type="1" name="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae" noise_maximum="0.2441" noise_minimum="-0.2441" noise_threshold="0.2441" pause_threshold="8" qad_center="0" sample_rate="2000000.0" tolerance="5">
+    <messages/>
+  </signal>
+  <open_file name="RTL-SDR-433_920MHz-2MSps-2MHz.complex" position="2"/>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae-filtered-with-f_low=0_01272-f_high=0_004174-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae-filtered-with-f_low=0_01272-f_high=0_004174-bw=0_08" noise_maximum="0.2441" noise_minimum="-0.2441" noise_threshold="0.2441" pause_threshold="8" qad_center="0.0466" sample_rate="1000000.0" tolerance="5">
+    <messages/>
+  </signal>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae2.complex" message_length_divisor="1" modulation_type="1" name="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae2" noise_maximum="0.3005" noise_minimum="-0.3005" noise_threshold="0.3005" pause_threshold="8" qad_center="0" sample_rate="2000000.0" tolerance="5">
+    <messages/>
+  </signal>
+  <open_file name="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae2.complex" position="4"/>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1400" filename="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae2-filtered-with-f_low=0_01282-f_high=0_004588-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae2-filtered-with-f_low=0_01282-f_high=0_004588-bw=0_08" noise_maximum="0.3002" noise_minimum="-0.3002" noise_threshold="0.3002" pause_threshold="8" qad_center="0.0487" sample_rate="1000000.0" tolerance="5">
+    <messages/>
+  </signal>
   <group id="0" name="New Group">
-    <cf_protocol filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae.complex"/>
+    <cf_protocol filename="RTL-SDR-433_920MHz-2MSps-2MHz_aeaeaeae2.complex"/>
+    <cf_protocol filename="RTL-SDR-433_920MHz-2MSps-2MHz.complex"/>
     <cf_protocol filename="HackRF-433_920MHz-2MSps-2MHz_aeaeaeae_2.complex"/>
   </group>
   <protocol>
@@ -53,10 +61,12 @@
     </decodings>
     <participants/>
     <messages>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="4049" timestamp="1536852891.1931267"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3890" timestamp="1536859140.6070178"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3881" timestamp="1536858739.5591404"/>
       <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3888" timestamp="1536852908.463816"/>
-      <message decoding_index="4" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3927" timestamp="1536852976.49972"/>
-      <message decoding_index="4" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="4086" timestamp="1536853055.2410748"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3927" timestamp="1536852976.49972"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3875" timestamp="1536858851.6146448"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="3886" timestamp="1536859191.8616772"/>
     </messages>
     <message_types>
       <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="d6defec5-e886-46b9-b406-8b472908a94f" name="default">
