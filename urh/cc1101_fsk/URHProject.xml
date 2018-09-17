@@ -11,7 +11,7 @@
     <decoding_name>Non Return To Zero (NRZ)</decoding_name>
     <freq_correction>1</freq_correction>
     <frequency>433920000.0</frequency>
-    <gain>20.0</gain>
+    <gain>20</gain>
     <modulation_index>1.0</modulation_index>
     <name>HackRF</name>
     <noise>0.0229</noise>
@@ -22,33 +22,39 @@
     <rx_if_gain>16</rx_if_gain>
     <sample_rate>2000000.0</sample_rate>
     <tolerance>5.0</tolerance>
+    <tx_antenna_index>-1</tx_antenna_index>
+    <tx_baseband_gain>20</tx_baseband_gain>
+    <tx_gain>0</tx_gain>
+    <tx_if_gain>23</tx_if_gain>
   </device_conf>
   <simulator_rx_conf/>
   <simulator_tx_conf/>
-  <signal auto_detect_on_modulation_changed="True" bit_length="100" filename="HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE" noise_maximum="0.0373" noise_minimum="-0.0373" noise_threshold="0.0373" pause_threshold="8" qad_center="0" sample_rate="2000000.0" tolerance="5">
+  <signal auto_detect_on_modulation_changed="False" bit_length="1600" filename="HackRF-433_920MHz-2MSps-2MHz_00000000_255_DST_ADDR-filtered-with-f_low=0_01193-f_high=0_003748-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="HackRF-433_920MHz-2MSps-2MHz_00000000_255_DST_ADDR-filtered-with-f_low=0_01193-f_high=0_003748-bw=0_08" noise_maximum="0.0075" noise_minimum="-0.0075" noise_threshold="0.0075" pause_threshold="8" qad_center="0.0463" sample_rate="2000000.0" tolerance="20">
     <messages/>
   </signal>
-  <open_file name="HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE.complex" position="0"/>
-  <signal auto_detect_on_modulation_changed="True" bit_length="100" filename="New-HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE_3.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE_3" noise_maximum="0.0373" noise_minimum="-0.0373" noise_threshold="0.0373" pause_threshold="8" qad_center="0" sample_rate="1000000.0" tolerance="5">
+  <open_file name="HackRF-433_920MHz-2MSps-2MHz_00000000_255_DST_ADDR-filtered-with-f_low=0_01193-f_high=0_003748-bw=0_08.complex" position="0"/>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1600" filename="New-HackRF-433_920MHz-2MSps-2MHz_3_00000000_1-filtered-with-f_low=0_01198-f_high=0_003497-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_3_00000000_1-filtered-with-f_low=0_01198-f_high=0_003497-bw=0_08" noise_maximum="0.1221" noise_minimum="-0.1221" noise_threshold="0.1221" pause_threshold="8" qad_center="0.0463" sample_rate="2000000.0" tolerance="20">
     <messages/>
   </signal>
-  <signal auto_detect_on_modulation_changed="False" bit_length="1500" filename="New-HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE_3-filtered-with-f_low=0_01189-f_high=0_003696-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE_3-filtered-with-f_low=0_01189-f_high=0_003696-bw=0_08" noise_maximum="0.283" noise_minimum="-0.283" noise_threshold="0.283" pause_threshold="8" qad_center="0.0475" sample_rate="1000000.0" tolerance="20">
+  <open_file name="New-HackRF-433_920MHz-2MSps-2MHz_3_00000000_1-filtered-with-f_low=0_01198-f_high=0_003497-bw=0_08.complex" position="1"/>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1600" filename="New-HackRF-433_920MHz-2MSps-2MHz_3_BCBCBCBC_1-filtered-with-f_low=0_01181-f_high=0_003297-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_3_BCBCBCBC_1-filtered-with-f_low=0_01181-f_high=0_003297-bw=0_08" noise_maximum="0.1105" noise_minimum="-0.1105" noise_threshold="0.1105" pause_threshold="8" qad_center="0.0469" sample_rate="2000000.0" tolerance="20">
     <messages/>
   </signal>
-  <signal auto_detect_on_modulation_changed="True" bit_length="100" filename="New-HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE_2.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE_2" noise_maximum="0.0373" noise_minimum="-0.0373" noise_threshold="0.0373" pause_threshold="8" qad_center="0" sample_rate="1000000.0" tolerance="5">
+  <open_file name="New-HackRF-433_920MHz-2MSps-2MHz_3_BCBCBCBC_1-filtered-with-f_low=0_01181-f_high=0_003297-bw=0_08.complex" position="2"/>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1600" filename="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1-filtered-with-f_low=0_01168-f_high=0_003785-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1-filtered-with-f_low=0_01168-f_high=0_003785-bw=0_08" noise_maximum="0.1369" noise_minimum="-0.1369" noise_threshold="0.1369" pause_threshold="8" qad_center="0.0435" sample_rate="2000000.0" tolerance="20">
     <messages/>
   </signal>
-  <signal auto_detect_on_modulation_changed="False" bit_length="1500" filename="New-HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE_2-filtered-with-f_low=0_01184-f_high=0_003758-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE_2-filtered-with-f_low=0_01184-f_high=0_003758-bw=0_08" noise_maximum="0.0373" noise_minimum="-0.0373" noise_threshold="0.0373" pause_threshold="8" qad_center="0.0448" sample_rate="1000000.0" tolerance="20">
+  <open_file name="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1-filtered-with-f_low=0_01168-f_high=0_003785-bw=0_08.complex" position="3"/>
+  <signal auto_detect_on_modulation_changed="False" bit_length="1600" filename="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08" noise_maximum="0.1644" noise_minimum="-0.1644" noise_threshold="0.1644" pause_threshold="8" qad_center="0.0487" sample_rate="2000000.0" tolerance="20">
     <messages/>
   </signal>
-  <signal auto_detect_on_modulation_changed="True" bit_length="100" filename="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1" noise_maximum="0.0373" noise_minimum="-0.0373" noise_threshold="0.0373" pause_threshold="8" qad_center="0" sample_rate="1000000.0" tolerance="5">
-    <messages/>
-  </signal>
-  <signal auto_detect_on_modulation_changed="False" bit_length="1500" filename="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1-filtered-with-f_low=0_01183-f_high=0_003644-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1-filtered-with-f_low=0_01183-f_high=0_003644-bw=0_08" noise_maximum="0.0373" noise_minimum="-0.0373" noise_threshold="0.0373" pause_threshold="8" qad_center="0.0446" sample_rate="1000000.0" tolerance="20">
-    <messages/>
-  </signal>
+  <open_file name="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08.complex" position="4"/>
   <group id="0" name="New Group">
-    <cf_protocol filename="HackRF-433_920MHz-2MSps-2MHz_3_AEAEAEAE.complex"/>
+    <cf_protocol filename="HackRF-433_920MHz-2MSps-2MHz_00000000_255_DST_ADDR-filtered-with-f_low=0_01193-f_high=0_003748-bw=0_08.complex"/>
+    <cf_protocol filename="New-HackRF-433_920MHz-2MSps-2MHz_3_00000000_1-filtered-with-f_low=0_01198-f_high=0_003497-bw=0_08.complex"/>
+    <cf_protocol filename="New-HackRF-433_920MHz-2MSps-2MHz_3_BCBCBCBC_1-filtered-with-f_low=0_01181-f_high=0_003297-bw=0_08.complex"/>
+    <cf_protocol filename="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1-filtered-with-f_low=0_01168-f_high=0_003785-bw=0_08.complex"/>
+    <cf_protocol filename="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08.complex"/>
   </group>
   <protocol>
     <decodings>
@@ -61,22 +67,23 @@
     </decodings>
     <participants/>
     <messages>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="2013081" timestamp="1536945939.84825"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="2012658" timestamp="1536945939.84825"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1716122" timestamp="1536945939.84825"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="2103" timestamp="1536945954.5197368"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="2140" timestamp="1536947847.7804081"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1245" timestamp="1536947744.2781134"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1247" timestamp="1536947845.3879251"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1294" timestamp="1536948663.574543"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1420" timestamp="1536949496.7092102"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="4377" timestamp="1537194820.974938"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1617" timestamp="1537198883.8226862"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1041" timestamp="1537194836.5574899"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="937" timestamp="1537194874.2853715"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="771" timestamp="1537195222.9261868"/>
     </messages>
     <message_types>
       <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="d6defec5-e886-46b9-b406-8b472908a94f" name="default">
-        <label apply_decoding="True" auto_created="False" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="17" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="1"/>
-        <label apply_decoding="True" auto_created="False" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="25" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="17"/>
-        <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="33" fuzz_me="2" fuzz_values="" name="length" show="2" start="25"/>
-        <label apply_decoding="True" auto_created="False" color_index="3" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="41" fuzz_me="2" fuzz_values="" name="destination address" show="2" start="33"/>
+        <label apply_decoding="True" auto_created="False" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="16" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="0"/>
+        <label apply_decoding="True" auto_created="False" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="32" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="16"/>
+        <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="40" fuzz_me="2" fuzz_values="" name="length" show="2" start="32"/>
+        <label apply_decoding="True" auto_created="False" color_index="6" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="48" fuzz_me="2" fuzz_values="" name="destination address" show="2" start="40"/>
+        <label apply_decoding="True" auto_created="False" color_index="5" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="56" fuzz_me="2" fuzz_values="" name="source address" show="2" start="48"/>
+        <label apply_decoding="True" auto_created="False" color_index="4" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="89" fuzz_me="2" fuzz_values="" name="data" show="2" start="57"/>
+        <checksum_label apply_decoding="True" auto_created="False" category="generic" color_index="3" data_ranges="[[32, 89]]" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="105" fuzz_me="2" fuzz_values="" name="crc" show="2" start="89">
+          <crc final_xor="00000000" polynomial="111010101" start_value="00000000"/>
+        </checksum_label>
         <ruleset mode="0"/>
       </message_type>
       <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="cee568ba-74b9-45e4-b974-d4c00cd8c8b8" name="Message type #1">
