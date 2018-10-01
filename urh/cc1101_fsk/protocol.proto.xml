@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<protocol>
+   <decodings>
+      <decoding>'Non Return To Zero (NRZ)', </decoding>
+      <decoding>'Non Return To Zero Inverted (NRZ-I)', 'Invert', </decoding>
+      <decoding>'Manchester I', 'Edge Trigger', </decoding>
+      <decoding>'Manchester II', 'Edge Trigger', 'Invert', </decoding>
+      <decoding>'Differential Manchester', 'Edge Trigger', 'Differential Encoding', </decoding>
+      <decoding>'Non Return To Zero (NRZ) - CC1101', 'Remove Data Whitening (CC1101)', '0xe9cae9ca;0x21;0', </decoding>
+   </decodings>
+   <participants/>
+   <messages>
+      <message bits="10101010101010100101011101000011000001101111111100000000000000000000000000000000000000000011110110100100000000" decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="4377" timestamp="1537194820.974938"/>
+      <message bits="101010101010101001010111010000110000011000000000000000001000000000000000000000000000000000010111100001101110" decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1617" timestamp="1537198883.8226862"/>
+      <message bits="101010101010101001010111010000110000011000000000000000001101111001011110010111100101111001110110010011111110" decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1041" timestamp="1537194836.5574899"/>
+      <message bits="10101010101010100101011101000011000001100000000000000000110101110101011101010111010101110011010011001111000" decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="937" timestamp="1537194874.2853715"/>
+      <message bits="1010101010101010010101110100001100000110000000001111111100000000000000000000000000000000011110110010010000" decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="771" timestamp="1537195222.9261868"/>
+   </messages>
+   <message_types>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="d6defec5-e886-46b9-b406-8b472908a94f" name="default">
+         <label apply_decoding="True" auto_created="False" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="16" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="0"/>
+         <label apply_decoding="True" auto_created="False" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="32" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="16"/>
+         <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="40" fuzz_me="2" fuzz_values="" name="length" show="2" start="32"/>
+         <label apply_decoding="True" auto_created="False" color_index="6" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="48" fuzz_me="2" fuzz_values="" name="destination address" show="2" start="40"/>
+         <label apply_decoding="True" auto_created="False" color_index="5" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="56" fuzz_me="2" fuzz_values="" name="source address" show="2" start="48"/>
+         <label apply_decoding="True" auto_created="False" color_index="4" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="89" fuzz_me="2" fuzz_values="" name="data" show="2" start="57"/>
+         <checksum_label apply_decoding="True" auto_created="False" category="generic" color_index="3" data_ranges="[[32, 89]]" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="105" fuzz_me="2" fuzz_values="" name="crc" show="2" start="89">
+            <crc final_xor="00000000" polynomial="111010101" start_value="00000000"/>
+         </checksum_label>
+         <ruleset mode="0"/>
+      </message_type>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="cee568ba-74b9-45e4-b974-d4c00cd8c8b8" name="Message type #1">
+         <label apply_decoding="True" auto_created="True" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="37" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="1"/>
+         <label apply_decoding="True" auto_created="True" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="41" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="37"/>
+         <ruleset mode="0"/>
+      </message_type>
+      <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="03eea9ab-598a-4394-a81a-f4ba4afd60b7" name="Message type #2">
+         <label apply_decoding="True" auto_created="True" color_index="0" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="37" fuzz_me="2" fuzz_values="" name="preamble" show="2" start="1"/>
+         <label apply_decoding="True" auto_created="True" color_index="1" display_bit_order_index="0" display_endianness="big" display_format_index="0" end="41" fuzz_me="2" fuzz_values="" name="synchronization" show="2" start="37"/>
+         <label apply_decoding="True" auto_created="False" color_index="2" display_bit_order_index="0" display_endianness="big" display_format_index="3" end="45" fuzz_me="2" fuzz_values="" name="length" show="2" start="41"/>
+         <ruleset mode="0"/>
+      </message_type>
+   </message_types>
+</protocol>

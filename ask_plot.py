@@ -20,7 +20,7 @@ plots.append(p1)
 
 p2 = plt.subplot(5, 1, 2)
 plt.plot(x, y2,color='red')
-plt.ylabel('Analógica')
+plt.ylabel('Analogica')
 plots.append(p2)
 
 p3 = plt.subplot(5, 1, 3)

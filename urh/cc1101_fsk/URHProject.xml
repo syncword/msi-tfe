@@ -9,23 +9,23 @@
     <bit_len>1400.0</bit_len>
     <center>0.0454</center>
     <decoding_name>Non Return To Zero (NRZ)</decoding_name>
-    <freq_correction>1</freq_correction>
+    <freq_correction>1.0</freq_correction>
     <frequency>433920000.0</frequency>
-    <gain>20</gain>
+    <gain>20.0</gain>
     <modulation_index>1.0</modulation_index>
     <name>HackRF</name>
     <noise>0.0229</noise>
-    <num_sending_repeats>0</num_sending_repeats>
-    <rx_antenna_index>-1</rx_antenna_index>
-    <rx_baseband_gain>30</rx_baseband_gain>
-    <rx_gain>0</rx_gain>
-    <rx_if_gain>16</rx_if_gain>
+    <num_sending_repeats>0.0</num_sending_repeats>
+    <rx_antenna_index>-1.0</rx_antenna_index>
+    <rx_baseband_gain>30.0</rx_baseband_gain>
+    <rx_gain>0.0</rx_gain>
+    <rx_if_gain>16.0</rx_if_gain>
     <sample_rate>2000000.0</sample_rate>
     <tolerance>5.0</tolerance>
-    <tx_antenna_index>-1</tx_antenna_index>
-    <tx_baseband_gain>20</tx_baseband_gain>
-    <tx_gain>0</tx_gain>
-    <tx_if_gain>23</tx_if_gain>
+    <tx_antenna_index>-1.0</tx_antenna_index>
+    <tx_baseband_gain>20.0</tx_baseband_gain>
+    <tx_gain>0.0</tx_gain>
+    <tx_if_gain>23.0</tx_if_gain>
   </device_conf>
   <simulator_rx_conf/>
   <simulator_tx_conf/>
@@ -82,7 +82,7 @@
         <label apply_decoding="True" auto_created="False" color_index="5" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="56" fuzz_me="2" fuzz_values="" name="source address" show="2" start="48"/>
         <label apply_decoding="True" auto_created="False" color_index="4" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="89" fuzz_me="2" fuzz_values="" name="data" show="2" start="57"/>
         <checksum_label apply_decoding="True" auto_created="False" category="generic" color_index="3" data_ranges="[[32, 89]]" display_bit_order_index="0" display_endianness="big" display_format_index="1" end="105" fuzz_me="2" fuzz_values="" name="crc" show="2" start="89">
-          <crc final_xor="00000000" polynomial="111010101" start_value="00000000"/>
+          <crc final_xor="0000000000000000" polynomial="11000000000000101" start_value="1111111111111111"/>
         </checksum_label>
         <ruleset mode="0"/>
       </message_type>
