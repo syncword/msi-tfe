@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Wed Oct 10 10:05:56 2018
+# Generated: Wed Oct 10 10:19:33 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -253,12 +253,12 @@ class top_block(gr.top_block, Qt.QWidget):
         self.freq_xlating_fir_filter_xxx_0 = filter.freq_xlating_fir_filter_ccc(1, (variable_band_pass_filter_taps_0), 0, samp_rate)
         self.blocks_throttle_1 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
         self.blocks_threshold_ff_0 = blocks.threshold_ff(1, 2, 0)
-        self.blocks_tagged_file_sink_0 = blocks.tagged_file_sink(gr.sizeof_gr_complex*1, 2000000)
-        self.blocks_tag_debug_0 = blocks.tag_debug(gr.sizeof_gr_complex*1, '', ""); self.blocks_tag_debug_0.set_display(True)
+        self.blocks_tagged_file_sink_0 = blocks.tagged_file_sink(gr.sizeof_float*1, 2000000)
+        self.blocks_tag_debug_0 = blocks.tag_debug(gr.sizeof_float*1, '', ""); self.blocks_tag_debug_0.set_display(True)
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((2, ))
         self.blocks_moving_average_xx_0 = blocks.moving_average_ff(samples_per_sym, 1, 4000, 1)
         self.blocks_float_to_short_0 = blocks.float_to_short(1, 1)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, 'C:\\Users\\reghe\\Documents\\GitHub\\msi-tfe\\gnuradio\\HackRF-433_920MHz-2MSps-2MHz.complex', True)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, '/home/lucho/sdr/msi-tfe/gnuradio/HackRF-433_920MHz-2MSps-2MHz.complex', True)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.blocks_complex_to_mag_squared_1 = blocks.complex_to_mag_squared(1)
         self.blocks_burst_tagger_0 = blocks.burst_tagger(gr.sizeof_gr_complex)
@@ -274,10 +274,10 @@ class top_block(gr.top_block, Qt.QWidget):
         # Connections
         ##################################################
         self.connect((self.analog_quadrature_demod_cf_0, 0), (self.blocks_moving_average_xx_0, 0))
+        self.connect((self.analog_quadrature_demod_cf_0, 0), (self.blocks_tag_debug_0, 0))
+        self.connect((self.analog_quadrature_demod_cf_0, 0), (self.blocks_tagged_file_sink_0, 0))
         self.connect((self.analog_simple_squelch_cc_0, 0), (self.freq_xlating_fir_filter_xxx_0, 0))
         self.connect((self.blocks_burst_tagger_0, 0), (self.analog_quadrature_demod_cf_0, 0))
-        self.connect((self.blocks_burst_tagger_0, 0), (self.blocks_tag_debug_0, 0))
-        self.connect((self.blocks_burst_tagger_0, 0), (self.blocks_tagged_file_sink_0, 0))
         self.connect((self.blocks_complex_to_mag_squared_1, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.blocks_file_source_0, 0), (self.blocks_throttle_1, 0))
         self.connect((self.blocks_float_to_short_0, 0), (self.blocks_burst_tagger_0, 1))
