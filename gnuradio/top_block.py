@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Wed Oct 10 10:19:33 2018
+# Generated: Wed Oct 10 13:26:05 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -64,14 +64,9 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 2e6
-        self.low_cutoff_freq = low_cutoff_freq = 1e3
-
-        self.variable_band_pass_filter_taps_0 = variable_band_pass_filter_taps_0 = firdes.band_pass(1.0, samp_rate, low_cutoff_freq, 20e3, 200, firdes.WIN_HAMMING, 6.76)
-
         self.squelch = squelch = -20
         self.samples_per_sym = samples_per_sym = 1600
-        self.high_cutoff_freq = high_cutoff_freq = 2e3
+        self.samp_rate = samp_rate = 2e6
 
         ##################################################
         # Blocks
@@ -116,7 +111,7 @@ class top_block(gr.top_block, Qt.QWidget):
         self._qtgui_waterfall_sink_x_0_0_win = sip.wrapinstance(self.qtgui_waterfall_sink_x_0_0.pyqwidget(), Qt.QWidget)
         self.top_grid_layout.addWidget(self._qtgui_waterfall_sink_x_0_0_win)
         self.qtgui_time_sink_x_0 = qtgui.time_sink_f(
-        	390000, #size
+        	200000, #size
         	samp_rate, #samp_rate
         	"", #name
         	1 #number of inputs
@@ -124,10 +119,10 @@ class top_block(gr.top_block, Qt.QWidget):
         self.qtgui_time_sink_x_0.set_update_time(0.10)
         self.qtgui_time_sink_x_0.set_y_axis(-1, 1)
 
-        self.qtgui_time_sink_x_0.set_y_label('Amplitude', "")
+        self.qtgui_time_sink_x_0.set_y_label('Frequency', "")
 
         self.qtgui_time_sink_x_0.enable_tags(-1, True)
-        self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
+        self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_TAG, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "burst")
         self.qtgui_time_sink_x_0.enable_autoscale(True)
         self.qtgui_time_sink_x_0.enable_grid(False)
         self.qtgui_time_sink_x_0.enable_axis_labels(True)
@@ -182,83 +177,14 @@ class top_block(gr.top_block, Qt.QWidget):
 
 
 
-        self.qtgui_number_sink_0_0 = qtgui.number_sink(
-            gr.sizeof_float,
-            0,
-            qtgui.NUM_GRAPH_VERT,
-            1
-        )
-        self.qtgui_number_sink_0_0.set_update_time(0.10)
-        self.qtgui_number_sink_0_0.set_title("")
-
-        labels = ['', '', '', '', '',
-                  '', '', '', '', '']
-        units = ['', '', '', '', '',
-                 '', '', '', '', '']
-        colors = [("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"),
-                  ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black")]
-        factor = [1, 1, 1, 1, 1,
-                  1, 1, 1, 1, 1]
-        for i in xrange(1):
-            self.qtgui_number_sink_0_0.set_min(i, -1)
-            self.qtgui_number_sink_0_0.set_max(i, 1)
-            self.qtgui_number_sink_0_0.set_color(i, colors[i][0], colors[i][1])
-            if len(labels[i]) == 0:
-                self.qtgui_number_sink_0_0.set_label(i, "Data {0}".format(i))
-            else:
-                self.qtgui_number_sink_0_0.set_label(i, labels[i])
-            self.qtgui_number_sink_0_0.set_unit(i, units[i])
-            self.qtgui_number_sink_0_0.set_factor(i, factor[i])
-
-        self.qtgui_number_sink_0_0.enable_autoscale(False)
-        self._qtgui_number_sink_0_0_win = sip.wrapinstance(self.qtgui_number_sink_0_0.pyqwidget(), Qt.QWidget)
-        self.top_grid_layout.addWidget(self._qtgui_number_sink_0_0_win)
-        self.qtgui_number_sink_0 = qtgui.number_sink(
-            gr.sizeof_short,
-            0,
-            qtgui.NUM_GRAPH_VERT,
-            1
-        )
-        self.qtgui_number_sink_0.set_update_time(0.10)
-        self.qtgui_number_sink_0.set_title("")
-
-        labels = ['', '', '', '', '',
-                  '', '', '', '', '']
-        units = ['', '', '', '', '',
-                 '', '', '', '', '']
-        colors = [("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"),
-                  ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black")]
-        factor = [1, 1, 1, 1, 1,
-                  1, 1, 1, 1, 1]
-        for i in xrange(1):
-            self.qtgui_number_sink_0.set_min(i, -1)
-            self.qtgui_number_sink_0.set_max(i, 1)
-            self.qtgui_number_sink_0.set_color(i, colors[i][0], colors[i][1])
-            if len(labels[i]) == 0:
-                self.qtgui_number_sink_0.set_label(i, "Data {0}".format(i))
-            else:
-                self.qtgui_number_sink_0.set_label(i, labels[i])
-            self.qtgui_number_sink_0.set_unit(i, units[i])
-            self.qtgui_number_sink_0.set_factor(i, factor[i])
-
-        self.qtgui_number_sink_0.enable_autoscale(False)
-        self._qtgui_number_sink_0_win = sip.wrapinstance(self.qtgui_number_sink_0.pyqwidget(), Qt.QWidget)
-        self.top_grid_layout.addWidget(self._qtgui_number_sink_0_win)
-        self._low_cutoff_freq_range = Range(0, 10e3, 1, 1e3, 200)
-        self._low_cutoff_freq_win = RangeWidget(self._low_cutoff_freq_range, self.set_low_cutoff_freq, "low_cutoff_freq", "counter_slider", float)
-        self.top_grid_layout.addWidget(self._low_cutoff_freq_win)
-        self._high_cutoff_freq_range = Range(0, 100e3, 1, 2e3, 200)
-        self._high_cutoff_freq_win = RangeWidget(self._high_cutoff_freq_range, self.set_high_cutoff_freq, "high_cutoff_freq", "counter_slider", float)
-        self.top_grid_layout.addWidget(self._high_cutoff_freq_win)
-        self.freq_xlating_fir_filter_xxx_0 = filter.freq_xlating_fir_filter_ccc(1, (variable_band_pass_filter_taps_0), 0, samp_rate)
+        self.freq_xlating_fir_filter_xxx_0 = filter.freq_xlating_fir_filter_ccc(1, (1, ), 14e3, samp_rate)
         self.blocks_throttle_1 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
         self.blocks_threshold_ff_0 = blocks.threshold_ff(1, 2, 0)
-        self.blocks_tagged_file_sink_0 = blocks.tagged_file_sink(gr.sizeof_float*1, 2000000)
         self.blocks_tag_debug_0 = blocks.tag_debug(gr.sizeof_float*1, '', ""); self.blocks_tag_debug_0.set_display(True)
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((2, ))
-        self.blocks_moving_average_xx_0 = blocks.moving_average_ff(samples_per_sym, 1, 4000, 1)
+        self.blocks_moving_average_xx_0 = blocks.moving_average_ff(500, 1, 4000, 1)
         self.blocks_float_to_short_0 = blocks.float_to_short(1, 1)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, '/home/lucho/sdr/msi-tfe/gnuradio/HackRF-433_920MHz-2MSps-2MHz.complex', True)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, 'C:\\Users\\reghe\\Documents\\GitHub\\msi-tfe\\gnuradio\\HackRF-433_920MHz-2MSps-2MHz.complex', True)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.blocks_complex_to_mag_squared_1 = blocks.complex_to_mag_squared(1)
         self.blocks_burst_tagger_0 = blocks.burst_tagger(gr.sizeof_gr_complex)
@@ -275,16 +201,13 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         self.connect((self.analog_quadrature_demod_cf_0, 0), (self.blocks_moving_average_xx_0, 0))
         self.connect((self.analog_quadrature_demod_cf_0, 0), (self.blocks_tag_debug_0, 0))
-        self.connect((self.analog_quadrature_demod_cf_0, 0), (self.blocks_tagged_file_sink_0, 0))
         self.connect((self.analog_simple_squelch_cc_0, 0), (self.freq_xlating_fir_filter_xxx_0, 0))
         self.connect((self.blocks_burst_tagger_0, 0), (self.analog_quadrature_demod_cf_0, 0))
         self.connect((self.blocks_complex_to_mag_squared_1, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.blocks_file_source_0, 0), (self.blocks_throttle_1, 0))
         self.connect((self.blocks_float_to_short_0, 0), (self.blocks_burst_tagger_0, 1))
-        self.connect((self.blocks_float_to_short_0, 0), (self.qtgui_number_sink_0, 0))
         self.connect((self.blocks_moving_average_xx_0, 0), (self.qtgui_time_sink_x_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.blocks_threshold_ff_0, 0))
-        self.connect((self.blocks_multiply_const_vxx_0, 0), (self.qtgui_number_sink_0_0, 0))
         self.connect((self.blocks_threshold_ff_0, 0), (self.blocks_float_to_short_0, 0))
         self.connect((self.blocks_throttle_1, 0), (self.analog_simple_squelch_cc_0, 0))
         self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.blocks_burst_tagger_0, 0))
@@ -296,29 +219,6 @@ class top_block(gr.top_block, Qt.QWidget):
         self.settings = Qt.QSettings("GNU Radio", "top_block")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
-
-    def get_samp_rate(self):
-        return self.samp_rate
-
-    def set_samp_rate(self, samp_rate):
-        self.samp_rate = samp_rate
-        self.qtgui_waterfall_sink_x_0_0.set_frequency_range(0, self.samp_rate)
-        self.qtgui_time_sink_x_0.set_samp_rate(self.samp_rate)
-        self.qtgui_sink_x_0.set_frequency_range(0, self.samp_rate)
-        self.blocks_throttle_1.set_sample_rate(self.samp_rate)
-
-    def get_low_cutoff_freq(self):
-        return self.low_cutoff_freq
-
-    def set_low_cutoff_freq(self, low_cutoff_freq):
-        self.low_cutoff_freq = low_cutoff_freq
-
-    def get_variable_band_pass_filter_taps_0(self):
-        return self.variable_band_pass_filter_taps_0
-
-    def set_variable_band_pass_filter_taps_0(self, variable_band_pass_filter_taps_0):
-        self.variable_band_pass_filter_taps_0 = variable_band_pass_filter_taps_0
-        self.freq_xlating_fir_filter_xxx_0.set_taps((self.variable_band_pass_filter_taps_0))
 
     def get_squelch(self):
         return self.squelch
@@ -332,13 +232,16 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_samples_per_sym(self, samples_per_sym):
         self.samples_per_sym = samples_per_sym
-        self.blocks_moving_average_xx_0.set_length_and_scale(self.samples_per_sym, 1)
 
-    def get_high_cutoff_freq(self):
-        return self.high_cutoff_freq
+    def get_samp_rate(self):
+        return self.samp_rate
 
-    def set_high_cutoff_freq(self, high_cutoff_freq):
-        self.high_cutoff_freq = high_cutoff_freq
+    def set_samp_rate(self, samp_rate):
+        self.samp_rate = samp_rate
+        self.qtgui_waterfall_sink_x_0_0.set_frequency_range(0, self.samp_rate)
+        self.qtgui_time_sink_x_0.set_samp_rate(self.samp_rate)
+        self.qtgui_sink_x_0.set_frequency_range(0, self.samp_rate)
+        self.blocks_throttle_1.set_sample_rate(self.samp_rate)
 
 
 def main(top_block_cls=top_block, options=None):
