@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Thu Oct 11 11:06:08 2018
+# Generated: Thu Oct 11 11:15:50 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -188,8 +188,8 @@ class top_block(gr.top_block, Qt.QWidget):
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((2, ))
         self.blocks_moving_average_xx_0 = blocks.moving_average_ff(samp_per_sym, 1, 16000, 1)
         self.blocks_float_to_short_0 = blocks.float_to_short(1, 1)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, 'C:\\Users\\reghe\\Documents\\GitHub\\msi-tfe\\gnuradio\\HackRF-433_920MHz-2MSps-2MHz.complex', False)
-        self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
+        self.blocks_file_source_0_0 = blocks.file_source(gr.sizeof_gr_complex*1, '/home/lucho/sdr/msi-tfe/gnuradio/HackRF-433_920MHz-2MSps-2MHz.complex', False)
+        self.blocks_file_source_0_0.set_begin_tag(pmt.PMT_NIL)
         self.blocks_complex_to_mag_squared_1 = blocks.complex_to_mag_squared(1)
         self.blocks_char_to_float_0 = blocks.char_to_float(1, 1)
         self.blocks_burst_tagger_0 = blocks.burst_tagger(gr.sizeof_gr_complex)
@@ -211,7 +211,7 @@ class top_block(gr.top_block, Qt.QWidget):
         self.connect((self.blocks_char_to_float_0, 0), (self.blocks_tagged_file_sink_0, 0))
         self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_time_sink_x_0, 0))
         self.connect((self.blocks_complex_to_mag_squared_1, 0), (self.blocks_multiply_const_vxx_0, 0))
-        self.connect((self.blocks_file_source_0, 0), (self.blocks_throttle_1, 0))
+        self.connect((self.blocks_file_source_0_0, 0), (self.blocks_throttle_1, 0))
         self.connect((self.blocks_float_to_short_0, 0), (self.blocks_burst_tagger_0, 1))
         self.connect((self.blocks_moving_average_xx_0, 0), (self.digital_binary_slicer_fb_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.blocks_threshold_ff_0, 0))
