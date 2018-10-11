@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Thu Oct 11 13:08:06 2018
+# Generated: Thu Oct 11 15:08:16 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -26,12 +26,12 @@ from gnuradio import gr
 from gnuradio import qtgui
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
-from gnuradio.qtgui import Range, RangeWidget
 from optparse import OptionParser
 import math
-import pmt
+import osmosdr
 import sip
 import sys
+import time
 from gnuradio import qtgui
 
 
@@ -66,52 +66,12 @@ class top_block(gr.top_block, Qt.QWidget):
         # Variables
         ##################################################
         self.decimation = decimation = 100
-        self.squelch = squelch = -20
         self.samp_rate = samp_rate = 2e6
         self.samp_per_sym = samp_per_sym = 1600/decimation
 
         ##################################################
         # Blocks
         ##################################################
-        self._squelch_range = Range(-100, 0, 1, -20, 200)
-        self._squelch_win = RangeWidget(self._squelch_range, self.set_squelch, "squelch", "counter_slider", float)
-        self.top_grid_layout.addWidget(self._squelch_win)
-        self.qtgui_waterfall_sink_x_0_0 = qtgui.waterfall_sink_c(
-        	1024, #size
-        	firdes.WIN_BLACKMAN_hARRIS, #wintype
-        	0, #fc
-        	samp_rate, #bw
-        	"", #name
-                1 #number of inputs
-        )
-        self.qtgui_waterfall_sink_x_0_0.set_update_time(0.10)
-        self.qtgui_waterfall_sink_x_0_0.enable_grid(False)
-        self.qtgui_waterfall_sink_x_0_0.enable_axis_labels(True)
-
-        if not True:
-          self.qtgui_waterfall_sink_x_0_0.disable_legend()
-
-        if "complex" == "float" or "complex" == "msg_float":
-          self.qtgui_waterfall_sink_x_0_0.set_plot_pos_half(not True)
-
-        labels = ['', '', '', '', '',
-                  '', '', '', '', '']
-        colors = [0, 0, 0, 0, 0,
-                  0, 0, 0, 0, 0]
-        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
-                  1.0, 1.0, 1.0, 1.0, 1.0]
-        for i in xrange(1):
-            if len(labels[i]) == 0:
-                self.qtgui_waterfall_sink_x_0_0.set_line_label(i, "Data {0}".format(i))
-            else:
-                self.qtgui_waterfall_sink_x_0_0.set_line_label(i, labels[i])
-            self.qtgui_waterfall_sink_x_0_0.set_color_map(i, colors[i])
-            self.qtgui_waterfall_sink_x_0_0.set_line_alpha(i, alphas[i])
-
-        self.qtgui_waterfall_sink_x_0_0.set_intensity_range(-140, 10)
-
-        self._qtgui_waterfall_sink_x_0_0_win = sip.wrapinstance(self.qtgui_waterfall_sink_x_0_0.pyqwidget(), Qt.QWidget)
-        self.top_grid_layout.addWidget(self._qtgui_waterfall_sink_x_0_0_win)
         self.qtgui_time_sink_x_0_0 = qtgui.time_sink_f(
         	2000, #size
         	samp_rate, #samp_rate
@@ -227,26 +187,33 @@ class top_block(gr.top_block, Qt.QWidget):
 
 
 
+        self.osmosdr_source_0 = osmosdr.source( args="numchan=" + str(1) + " " + '' )
+        self.osmosdr_source_0.set_sample_rate(samp_rate)
+        self.osmosdr_source_0.set_center_freq(433e6, 0)
+        self.osmosdr_source_0.set_freq_corr(0, 0)
+        self.osmosdr_source_0.set_dc_offset_mode(0, 0)
+        self.osmosdr_source_0.set_iq_balance_mode(0, 0)
+        self.osmosdr_source_0.set_gain_mode(False, 0)
+        self.osmosdr_source_0.set_gain(10, 0)
+        self.osmosdr_source_0.set_if_gain(20, 0)
+        self.osmosdr_source_0.set_bb_gain(20, 0)
+        self.osmosdr_source_0.set_antenna('', 0)
+        self.osmosdr_source_0.set_bandwidth(0, 0)
+
         self.freq_xlating_fir_filter_xxx_0 = filter.freq_xlating_fir_filter_ccc(decimation, (1, ), 14e3, samp_rate)
         self.digital_binary_slicer_fb_0 = digital.binary_slicer_fb()
         self.blocks_throttle_1 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
         self.blocks_threshold_ff_0 = blocks.threshold_ff(1, 2, 0)
-        self.blocks_tagged_file_sink_0 = blocks.tagged_file_sink(gr.sizeof_float*1, 2000000)
         self.blocks_multiply_const_vxx_1 = blocks.multiply_const_vff((0.5, ))
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((2, ))
         self.blocks_float_to_short_0 = blocks.float_to_short(1, 1)
-        self.blocks_file_source_0_0 = blocks.file_source(gr.sizeof_gr_complex*1, '/home/lucho/sdr/msi-tfe/gnuradio/HackRF-433_920MHz-2MSps-2MHz.complex', False)
-        self.blocks_file_source_0_0.set_begin_tag(pmt.PMT_NIL)
-        self.blocks_file_sink_0 = blocks.file_sink(gr.sizeof_float*1, 'C:\\Users\\reghe\\Documents\\GitHub\\msi-tfe\\gnuradio\\packet.dat', False)
-        self.blocks_file_sink_0.set_unbuffered(False)
-        self.blocks_delay_0 = blocks.delay(gr.sizeof_gr_complex*1, 17)
         self.blocks_complex_to_mag_squared_1 = blocks.complex_to_mag_squared(1)
         self.blocks_char_to_float_0 = blocks.char_to_float(1, 1)
         self.blocks_burst_tagger_0 = blocks.burst_tagger(gr.sizeof_gr_complex)
         self.blocks_burst_tagger_0.set_true_tag('burst',True)
         self.blocks_burst_tagger_0.set_false_tag('burst',False)
 
-        self.analog_simple_squelch_cc_0 = analog.simple_squelch_cc(squelch, 1)
+        self.analog_simple_squelch_cc_0 = analog.simple_squelch_cc(-20, 1)
         self.analog_quadrature_demod_cf_0 = analog.quadrature_demod_cf(1)
 
 
@@ -258,22 +225,18 @@ class top_block(gr.top_block, Qt.QWidget):
         self.connect((self.analog_quadrature_demod_cf_0, 0), (self.qtgui_time_sink_x_0_0, 0))
         self.connect((self.analog_simple_squelch_cc_0, 0), (self.freq_xlating_fir_filter_xxx_0, 0))
         self.connect((self.blocks_burst_tagger_0, 0), (self.analog_quadrature_demod_cf_0, 0))
-        self.connect((self.blocks_char_to_float_0, 0), (self.blocks_file_sink_0, 0))
-        self.connect((self.blocks_char_to_float_0, 0), (self.blocks_tagged_file_sink_0, 0))
         self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_time_sink_x_0, 0))
         self.connect((self.blocks_complex_to_mag_squared_1, 0), (self.blocks_multiply_const_vxx_0, 0))
-        self.connect((self.blocks_delay_0, 0), (self.blocks_burst_tagger_0, 0))
-        self.connect((self.blocks_file_source_0_0, 0), (self.blocks_throttle_1, 0))
         self.connect((self.blocks_float_to_short_0, 0), (self.blocks_burst_tagger_0, 1))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.blocks_threshold_ff_0, 0))
         self.connect((self.blocks_multiply_const_vxx_1, 0), (self.digital_binary_slicer_fb_0, 0))
         self.connect((self.blocks_threshold_ff_0, 0), (self.blocks_float_to_short_0, 0))
         self.connect((self.blocks_throttle_1, 0), (self.analog_simple_squelch_cc_0, 0))
         self.connect((self.digital_binary_slicer_fb_0, 0), (self.blocks_char_to_float_0, 0))
+        self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.blocks_burst_tagger_0, 0))
         self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.blocks_complex_to_mag_squared_1, 0))
-        self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.blocks_delay_0, 0))
         self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.qtgui_sink_x_0, 0))
-        self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.qtgui_waterfall_sink_x_0_0, 0))
+        self.connect((self.osmosdr_source_0, 0), (self.blocks_throttle_1, 0))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "top_block")
@@ -287,22 +250,15 @@ class top_block(gr.top_block, Qt.QWidget):
         self.decimation = decimation
         self.set_samp_per_sym(1600/self.decimation)
 
-    def get_squelch(self):
-        return self.squelch
-
-    def set_squelch(self, squelch):
-        self.squelch = squelch
-        self.analog_simple_squelch_cc_0.set_threshold(self.squelch)
-
     def get_samp_rate(self):
         return self.samp_rate
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.qtgui_waterfall_sink_x_0_0.set_frequency_range(0, self.samp_rate)
         self.qtgui_time_sink_x_0_0.set_samp_rate(self.samp_rate)
         self.qtgui_time_sink_x_0.set_samp_rate(self.samp_rate)
         self.qtgui_sink_x_0.set_frequency_range(0, self.samp_rate)
+        self.osmosdr_source_0.set_sample_rate(self.samp_rate)
         self.blocks_throttle_1.set_sample_rate(self.samp_rate)
 
     def get_samp_per_sym(self):
