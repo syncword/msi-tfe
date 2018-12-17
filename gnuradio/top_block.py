@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Thu Oct 11 15:08:16 2018
+# Generated: Fri Oct 12 10:29:08 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -26,6 +26,7 @@ from gnuradio import gr
 from gnuradio import qtgui
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
+from gnuradio.qtgui import Range, RangeWidget
 from optparse import OptionParser
 import math
 import osmosdr
@@ -68,14 +69,51 @@ class top_block(gr.top_block, Qt.QWidget):
         self.decimation = decimation = 100
         self.samp_rate = samp_rate = 2e6
         self.samp_per_sym = samp_per_sym = 1600/decimation
+        self.freq_offset = freq_offset = 14e3
 
         ##################################################
         # Blocks
         ##################################################
+        self.qtgui_waterfall_sink_x_0 = qtgui.waterfall_sink_c(
+        	1024, #size
+        	firdes.WIN_BLACKMAN_hARRIS, #wintype
+        	0, #fc
+        	samp_rate, #bw
+        	"", #name
+                1 #number of inputs
+        )
+        self.qtgui_waterfall_sink_x_0.set_update_time(0.10)
+        self.qtgui_waterfall_sink_x_0.enable_grid(False)
+        self.qtgui_waterfall_sink_x_0.enable_axis_labels(True)
+
+        if not True:
+          self.qtgui_waterfall_sink_x_0.disable_legend()
+
+        if "complex" == "float" or "complex" == "msg_float":
+          self.qtgui_waterfall_sink_x_0.set_plot_pos_half(not True)
+
+        labels = ['', '', '', '', '',
+                  '', '', '', '', '']
+        colors = [0, 0, 0, 0, 0,
+                  0, 0, 0, 0, 0]
+        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
+                  1.0, 1.0, 1.0, 1.0, 1.0]
+        for i in xrange(1):
+            if len(labels[i]) == 0:
+                self.qtgui_waterfall_sink_x_0.set_line_label(i, "Data {0}".format(i))
+            else:
+                self.qtgui_waterfall_sink_x_0.set_line_label(i, labels[i])
+            self.qtgui_waterfall_sink_x_0.set_color_map(i, colors[i])
+            self.qtgui_waterfall_sink_x_0.set_line_alpha(i, alphas[i])
+
+        self.qtgui_waterfall_sink_x_0.set_intensity_range(-140, 10)
+
+        self._qtgui_waterfall_sink_x_0_win = sip.wrapinstance(self.qtgui_waterfall_sink_x_0.pyqwidget(), Qt.QWidget)
+        self.top_grid_layout.addWidget(self._qtgui_waterfall_sink_x_0_win)
         self.qtgui_time_sink_x_0_0 = qtgui.time_sink_f(
         	2000, #size
         	samp_rate, #samp_rate
-        	"", #name
+        	"Raw Burst", #name
         	1 #number of inputs
         )
         self.qtgui_time_sink_x_0_0.set_update_time(0.10)
@@ -121,9 +159,9 @@ class top_block(gr.top_block, Qt.QWidget):
         self._qtgui_time_sink_x_0_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0_0.pyqwidget(), Qt.QWidget)
         self.top_grid_layout.addWidget(self._qtgui_time_sink_x_0_0_win)
         self.qtgui_time_sink_x_0 = qtgui.time_sink_f(
-        	2000, #size
+        	200000/decimation, #size
         	samp_rate, #samp_rate
-        	"", #name
+        	"Binary Burst", #name
         	1 #number of inputs
         )
         self.qtgui_time_sink_x_0.set_update_time(0.10)
@@ -187,7 +225,7 @@ class top_block(gr.top_block, Qt.QWidget):
 
 
 
-        self.osmosdr_source_0 = osmosdr.source( args="numchan=" + str(1) + " " + '' )
+        self.osmosdr_source_0 = osmosdr.source( args="numchan=" + str(1) + " " + 'hackrf' )
         self.osmosdr_source_0.set_sample_rate(samp_rate)
         self.osmosdr_source_0.set_center_freq(433e6, 0)
         self.osmosdr_source_0.set_freq_corr(0, 0)
@@ -201,12 +239,15 @@ class top_block(gr.top_block, Qt.QWidget):
         self.osmosdr_source_0.set_bandwidth(0, 0)
 
         self.freq_xlating_fir_filter_xxx_0 = filter.freq_xlating_fir_filter_ccc(decimation, (1, ), 14e3, samp_rate)
+        self._freq_offset_range = Range(-50e3, 50e3, 1, 14e3, 200)
+        self._freq_offset_win = RangeWidget(self._freq_offset_range, self.set_freq_offset, "freq_offset", "counter_slider", float)
+        self.top_grid_layout.addWidget(self._freq_offset_win)
         self.digital_binary_slicer_fb_0 = digital.binary_slicer_fb()
         self.blocks_throttle_1 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
         self.blocks_threshold_ff_0 = blocks.threshold_ff(1, 2, 0)
-        self.blocks_multiply_const_vxx_1 = blocks.multiply_const_vff((0.5, ))
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((2, ))
         self.blocks_float_to_short_0 = blocks.float_to_short(1, 1)
+        self.blocks_delay_0 = blocks.delay(gr.sizeof_gr_complex*1, 30)
         self.blocks_complex_to_mag_squared_1 = blocks.complex_to_mag_squared(1)
         self.blocks_char_to_float_0 = blocks.char_to_float(1, 1)
         self.blocks_burst_tagger_0 = blocks.burst_tagger(gr.sizeof_gr_complex)
@@ -221,21 +262,22 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.analog_quadrature_demod_cf_0, 0), (self.blocks_multiply_const_vxx_1, 0))
+        self.connect((self.analog_quadrature_demod_cf_0, 0), (self.digital_binary_slicer_fb_0, 0))
         self.connect((self.analog_quadrature_demod_cf_0, 0), (self.qtgui_time_sink_x_0_0, 0))
         self.connect((self.analog_simple_squelch_cc_0, 0), (self.freq_xlating_fir_filter_xxx_0, 0))
         self.connect((self.blocks_burst_tagger_0, 0), (self.analog_quadrature_demod_cf_0, 0))
         self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_time_sink_x_0, 0))
         self.connect((self.blocks_complex_to_mag_squared_1, 0), (self.blocks_multiply_const_vxx_0, 0))
+        self.connect((self.blocks_delay_0, 0), (self.blocks_burst_tagger_0, 0))
         self.connect((self.blocks_float_to_short_0, 0), (self.blocks_burst_tagger_0, 1))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.blocks_threshold_ff_0, 0))
-        self.connect((self.blocks_multiply_const_vxx_1, 0), (self.digital_binary_slicer_fb_0, 0))
         self.connect((self.blocks_threshold_ff_0, 0), (self.blocks_float_to_short_0, 0))
         self.connect((self.blocks_throttle_1, 0), (self.analog_simple_squelch_cc_0, 0))
         self.connect((self.digital_binary_slicer_fb_0, 0), (self.blocks_char_to_float_0, 0))
-        self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.blocks_burst_tagger_0, 0))
         self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.blocks_complex_to_mag_squared_1, 0))
+        self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.blocks_delay_0, 0))
         self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.qtgui_sink_x_0, 0))
+        self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.qtgui_waterfall_sink_x_0, 0))
         self.connect((self.osmosdr_source_0, 0), (self.blocks_throttle_1, 0))
 
     def closeEvent(self, event):
@@ -255,6 +297,7 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
+        self.qtgui_waterfall_sink_x_0.set_frequency_range(0, self.samp_rate)
         self.qtgui_time_sink_x_0_0.set_samp_rate(self.samp_rate)
         self.qtgui_time_sink_x_0.set_samp_rate(self.samp_rate)
         self.qtgui_sink_x_0.set_frequency_range(0, self.samp_rate)
@@ -266,6 +309,12 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_samp_per_sym(self, samp_per_sym):
         self.samp_per_sym = samp_per_sym
+
+    def get_freq_offset(self):
+        return self.freq_offset
+
+    def set_freq_offset(self, freq_offset):
+        self.freq_offset = freq_offset
 
 
 def main(top_block_cls=top_block, options=None):

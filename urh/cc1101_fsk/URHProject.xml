@@ -1,25 +1,25 @@
 <?xml version="1.0" ?>
-<UniversalRadioHackerProject broadcast_address_hex="ffff" collapse_project_tabs="0" description="" modulation_was_edited="0">
+<UniversalRadioHackerProject broadcast_address_hex="ffff" collapse_project_tabs="0" description="" modulation_was_edited="1">
   <modulators>
-    <modulator carrier_amplitude="1.0" carrier_freq_hz="40000.0" carrier_phase_deg="0.0" gauss_bt="0.5" gauss_filter_width="1.0" index="0" modulation_type="0" name="Modulator" param_for_one="100.0" param_for_zero="0.0" sample_rate="None" samples_per_bit="100"/>
+    <modulator carrier_amplitude="1.0" carrier_freq_hz="40000.0" carrier_phase_deg="0.0" gauss_bt="0.5" gauss_filter_width="1.0" index="0" modulation_type="1" name="Modulator" param_for_one="40000.0" param_for_zero="20000.0" sample_rate="None" samples_per_bit="100"/>
   </modulators>
   <device_conf>
-    <adaptive_noise>False</adaptive_noise>
+    <adaptive_noise>True</adaptive_noise>
     <bandwidth>2000000.0</bandwidth>
     <bit_len>1400.0</bit_len>
     <center>0.0454</center>
     <decoding_name>Non Return To Zero (NRZ)</decoding_name>
-    <freq_correction>1.0</freq_correction>
+    <freq_correction>1</freq_correction>
     <frequency>433920000.0</frequency>
     <gain>20.0</gain>
     <modulation_index>1.0</modulation_index>
-    <name>HackRF</name>
+    <name>RTL-SDR</name>
     <noise>0.0229</noise>
-    <num_sending_repeats>0.0</num_sending_repeats>
-    <rx_antenna_index>-1.0</rx_antenna_index>
-    <rx_baseband_gain>30.0</rx_baseband_gain>
-    <rx_gain>0.0</rx_gain>
-    <rx_if_gain>16.0</rx_if_gain>
+    <num_sending_repeats>0</num_sending_repeats>
+    <rx_antenna_index>-1</rx_antenna_index>
+    <rx_baseband_gain>30</rx_baseband_gain>
+    <rx_gain>20</rx_gain>
+    <rx_if_gain>16</rx_if_gain>
     <sample_rate>2000000.0</sample_rate>
     <tolerance>5.0</tolerance>
     <tx_antenna_index>-1.0</tx_antenna_index>
@@ -45,16 +45,23 @@
     <messages/>
   </signal>
   <open_file name="HackRF-433_920MHz-2MSps-2MHz_00000000_255_DST_ADDR-filtered-with-f_low=0_01193-f_high=0_003748-bw=0_08.complex" position="3"/>
-  <signal auto_detect_on_modulation_changed="False" bit_length="1600" filename="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08" noise_maximum="0.1644" noise_minimum="-0.1644" noise_threshold="0.1644" pause_threshold="8" qad_center="0.0487" sample_rate="2000000.0" tolerance="20">
+  <signal auto_detect_on_modulation_changed="False" bit_length="1600" filename="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08.complex" message_length_divisor="1" modulation_type="1" name="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08" noise_maximum="0.1644" noise_minimum="-0.1644" noise_threshold="0.1644" pause_threshold="8" qad_center="0.0469" sample_rate="2000000.0" tolerance="20">
     <messages/>
   </signal>
   <open_file name="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08.complex" position="4"/>
+  <signal auto_detect_on_modulation_changed="True" bit_length="100" filename="..\..\gnuradio\RTL-SDR-433_920MHz-2MSps-2MHz_generated.complex" message_length_divisor="1" modulation_type="1" name="RTL-SDR-433_920MHz-2MSps-2MHz_generated" noise_maximum="0.0969" noise_minimum="-0.0969" noise_threshold="0.0969" pause_threshold="8" qad_center="0" sample_rate="2000000.0" tolerance="5">
+    <messages/>
+    <messages/>
+  </signal>
+  <open_file name="..\..\gnuradio\RTL-SDR-433_920MHz-2MSps-2MHz_generated.complex" position="5"/>
   <group id="0" name="New Group">
     <cf_protocol filename="HackRF-433_920MHz-2MSps-2MHz_00000000_255_DST_ADDR-filtered-with-f_low=0_01193-f_high=0_003748-bw=0_08.complex"/>
     <cf_protocol filename="New-HackRF-433_920MHz-2MSps-2MHz_3_00000000_1-filtered-with-f_low=0_01198-f_high=0_003497-bw=0_08.complex"/>
     <cf_protocol filename="New-HackRF-433_920MHz-2MSps-2MHz_3_BCBCBCBC_1-filtered-with-f_low=0_01181-f_high=0_003297-bw=0_08.complex"/>
     <cf_protocol filename="New-HackRF-433_920MHz-2MSps-2MHz_AEAEAEAE_1-filtered-with-f_low=0_01168-f_high=0_003785-bw=0_08.complex"/>
     <cf_protocol filename="New-HackRF-433_920MHz-2MSps-2MHz_00000000_255_SRC_ADDR-filtered-with-f_low=0_01204-f_high=0_00379-bw=0_08.complex"/>
+    <cf_protocol filename="..\..\gnuradio\RTL-SDR-433_920MHz-2MSps-2MHz_generated.complex"/>
+    <cf_protocol filename="..\..\gnuradio\RTL-SDR-433_920MHz-2MSps-2MHz_generated.complex"/>
   </group>
   <protocol>
     <decodings>
@@ -71,7 +78,10 @@
       <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1617" timestamp="1537198883.8226862"/>
       <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1041" timestamp="1537194836.5574899"/>
       <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="937" timestamp="1537194874.2853715"/>
-      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="771" timestamp="1537195222.9261868"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="771" timestamp="1540565139.4129016"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="6190" timestamp="1540568622.2497556"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="6183" timestamp="1540568875.2221816"/>
+      <message decoding_index="0" message_type_id="d6defec5-e886-46b9-b406-8b472908a94f" modulator_index="0" pause="1306977" timestamp="1540569156.2429502"/>
     </messages>
     <message_types>
       <message_type assigned_by_logic_analyzer="0" assigned_by_ruleset="0" id="d6defec5-e886-46b9-b406-8b472908a94f" name="default">

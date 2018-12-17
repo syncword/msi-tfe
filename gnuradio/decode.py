@@ -23,17 +23,19 @@ for s in samples:
     else:
         prev_cant = prev_cant + 1
 
+
+grouped_samples= list(chunks(samples[37:], 17))
+
+downsampled = []
+for i,s in enumerate(grouped_samples):
+    downsampled.append(np.bincount(s).argmax()) 
+
+print(''.join(map(str, downsampled)))
+
 # plt.plot(samples)
 plt.plot(samples[37:])
 plt.show()
 
-# grouped_samples= list(chunks(samples[37:], 17))
-
-# downsampled = []
-# for i,s in enumerate(grouped_samples):
-#     downsampled.append(np.bincount(s).argmax()) 
-
-# print(''.join(map(str, downsampled)))
 
 # # print(np.mean(samples.reshape(-1, 16), axis=1))
 
@@ -41,3 +43,4 @@ plt.show()
 
 # plt.plot(downsampled)
 # plt.show()
+
